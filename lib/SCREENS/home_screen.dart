@@ -218,7 +218,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         leading: Builder(
           builder: (context) => IconButton(
-            icon: Icon(Icons.menu), // Ikon garis tiga
+            icon: Icon(Icons.menu),
+            color: Colors.white, // Ikon garis tiga
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
@@ -232,10 +233,18 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundImage:
-                        AssetImage('assets/logo.png'), // Sesuaikan path gambar
+                  Container(
+                    width: 60, // Sesuaikan ukuran lebar lingkaran
+                    height: 60, // Sesuaikan ukuran tinggi lingkaran
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white, // Membuat bentuk lingkaran
+                      image: DecorationImage(
+                        image: AssetImage(
+                            'assets/images/remove.png'), // Path gambar
+                        fit: BoxFit.contain, // Agar gambar tidak terpotong
+                      ),
+                    ),
                   ),
                   SizedBox(height: 10),
                   Text(
@@ -259,7 +268,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TransactionScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
               },
             ),
@@ -277,7 +286,10 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Icon(Icons.receipt),
               title: Text('Laporan'),
               onTap: () {
-                // Arahkan ke halaman laporan
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TransactionScreen()),
+                );
               },
             ),
           ],
@@ -404,26 +416,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 8),
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.blueAccent,
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Column(
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'TOTAL:',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
+                      Icon(
+                        Icons.account_balance_wallet,
+                        size: 20,
+                        color: Colors.white,
                       ),
-                      Text(
-                        'Rp. $totalPrice,00',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
+                      SizedBox(width: 8),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'TOTAL:',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Rp. $totalPrice',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

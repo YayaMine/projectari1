@@ -12,6 +12,7 @@ class TransactionScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.blue,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -65,9 +66,9 @@ class TransactionScreen extends StatelessWidget {
                               SizedBox(height: 8),
                               Text('Jumlah: ${transaction['quantity']}'),
                               Text(
-                                  'Total Harga: Rp. ${transaction['totalPrice']}'),
-                              Text('Kembalian: Rp. ${transaction['change']}'),
-                              Text('Dibayar: Rp. ${transaction['payment']}'),
+                                  'Total Harga: Rp.${transaction['totalPrice']},00'),
+                              Text('Kembalian: Rp.${transaction['change']},00'),
+                              Text('Dibayar: Rp.${transaction['payment']},00'),
                               SizedBox(height: 8),
                               Text(
                                 transaction['timestamp'] != null

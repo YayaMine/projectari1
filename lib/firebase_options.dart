@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -33,10 +30,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -65,4 +59,25 @@ class DefaultFirebaseOptions {
     storageBucket: 'aplikasiari-ad345.firebasestorage.app',
     iosBundleId: 'com.example.projectari1',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyC_dGWWvcUOdPc-tAPquiW9barMcVkbNJA',
+    appId: '1:600162565967:web:c6ca991d96c0112771cf3a',
+    messagingSenderId: '600162565967',
+    projectId: 'aplikasiari-ad345',
+    authDomain: 'aplikasiari-ad345.firebaseapp.com',
+    storageBucket: 'aplikasiari-ad345.firebasestorage.app',
+    measurementId: 'G-4274KLYBLV',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyC_dGWWvcUOdPc-tAPquiW9barMcVkbNJA',
+    appId: '1:600162565967:web:2db58bc810439d4a71cf3a',
+    messagingSenderId: '600162565967',
+    projectId: 'aplikasiari-ad345',
+    authDomain: 'aplikasiari-ad345.firebaseapp.com',
+    storageBucket: 'aplikasiari-ad345.firebasestorage.app',
+    measurementId: 'G-YJBZE987QB',
+  );
+
 }

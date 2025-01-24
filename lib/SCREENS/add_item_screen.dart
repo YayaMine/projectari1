@@ -165,6 +165,7 @@ class AddItemScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.blue,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -423,11 +424,16 @@ class AddItemScreen extends StatelessWidget {
                     itemCount: items.length,
                     itemBuilder: (context, index) {
                       final item = items[index].data() as Map<String, dynamic>;
+
+                      // Ubah sellPrice ke bilangan bulat
+                      final int sellPrice = (item['sellPrice'] as num).toInt();
+
                       return Card(
                         child: ListTile(
                           title: Text(item['name']),
                           subtitle: Text(
-                              'Kategori: ${item['category']} | Harga Jual: Rp. ${item['sellPrice']} | Stok: ${item['stock']}'),
+                            'Kategori: ${item['category']} | Harga Jual: Rp. $sellPrice,00 | Stok: ${item['stock']}',
+                          ),
                           onTap: () {
                             loadItemData(items[index]);
                           },

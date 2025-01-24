@@ -11,6 +11,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    //atur delay
     Future.delayed(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
@@ -22,22 +23,29 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/remove.png', width: 200),
-            SizedBox(height: 20),
-            Text(
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Image.asset(
+                'assets/images/remove.png',
+                width: 200,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+                bottom: 20.0), // Beri sedikit padding di bawah
+            child: Text(
               'Kelompok 1',
               style: TextStyle(
-                fontSize: 11,
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
