@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "600162565967",
+    "project_id": "aplikasiari-ad345",
+    "storage_bucket": "aplikasiari-ad345.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600162565967:android:17d3a244b076a5b471cf3a",
+        "android_client_info": {
+          "package_name": "com.example.projectari1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTttRhf8FsPtGuSgLhf4eJbZ7A3mQJnnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
